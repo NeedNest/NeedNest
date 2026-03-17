@@ -1,0 +1,139 @@
+/* ============================
+   Location Picker Component
+   ============================ */
+
+.location-picker {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1.5px solid var(--border-color);
+  background: var(--bg-secondary);
+  transition: border-color var(--transition-base);
+}
+
+.location-picker:focus-within {
+  border-color: var(--primary-400);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* ---- Toolbar ---- */
+.lp-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.lp-status {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lp-locate-btn {
+  flex-shrink: 0;
+  padding: 6px 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+.lp-locate-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.lp-locate-btn:active {
+  transform: scale(0.97);
+}
+
+/* ---- Map container ---- */
+.lp-map-wrap {
+  position: relative;
+}
+
+.lp-map {
+  width: 100%;
+  height: 320px;
+  z-index: 1;
+}
+
+/* Override Leaflet z-index for pane so it doesn't float over navbar */
+.lp-map .leaflet-pane { z-index: 1 !important; }
+.lp-map .leaflet-control { z-index: 2 !important; }
+.lp-map .leaflet-top,
+.lp-map .leaflet-bottom { z-index: 2 !important; }
+
+/* ---- Overlay hint (before pin is placed) ---- */
+.lp-overlay-hint {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  background: rgba(0,0,0,0.65);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 7px 16px;
+  border-radius: 99px;
+  pointer-events: none;
+  white-space: nowrap;
+  backdrop-filter: blur(4px);
+  animation: lp-hint-pulse 2s ease-in-out infinite;
+}
+
+@keyframes lp-hint-pulse {
+  0%, 100% { opacity: 0.85; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 1; transform: translateX(-50%) translateY(-3px); }
+}
+
+/* ---- Read-only filled fields below map ---- */
+.lp-filled-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 14px;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+}
+
+.lp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.lp-field label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.lp-field span {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  min-height: 1.2em;
+}
+
+@media (max-width: 480px) {
+  .lp-map {
+    height: 240px;
+  }
+  .lp-filled-fields {
+    grid-template-columns: 1fr;
+  }
+}

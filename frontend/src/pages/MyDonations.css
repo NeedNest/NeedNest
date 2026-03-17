@@ -1,0 +1,123 @@
+/* ============================
+   My Donations Page
+   ============================ */
+.my-donations-page {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.donation-stats {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.stat-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.stat-tab:hover {
+  border-color: var(--primary-400);
+}
+
+.stat-tab.active {
+  background: var(--primary-500);
+  border-color: var(--primary-500);
+  color: white;
+}
+
+.stat-tab-count {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  font-size: 0.75rem;
+}
+
+.donations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.donation-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  cursor: default;
+}
+
+.donation-item:hover {
+  transform: translateY(-2px);
+}
+
+.donation-item-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.donation-emoji {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.donation-info h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.donation-info p {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+}
+
+.donation-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.donation-date {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+}
+
+.donation-item-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .donation-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .donation-item-actions {
+    width: 100%;
+  }
+
+  .donation-item-actions .btn {
+    flex: 1;
+  }
+}

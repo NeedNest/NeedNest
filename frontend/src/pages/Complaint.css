@@ -1,0 +1,98 @@
+.complaint-page {
+  padding: 40px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-radius: var(--radius-lg);
+}
+
+.complaint-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.complaint-icon {
+  font-size: 3rem;
+  color: var(--error);
+  margin-bottom: 16px;
+}
+
+.complaint-header h1 {
+  font-size: 2.2rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.complaint-header p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.complaint-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.form-input {
+  padding: 12px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+}
+
+.form-input:focus {
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+  outline: none;
+}
+
+textarea.form-input {
+  resize: vertical;
+}
+
+.submit-btn {
+  margin-top: 10px;
+  align-self: center;
+  padding: 12px 40px;
+  font-size: 1.1rem;
+}
+
+.success-message {
+  text-align: center;
+  padding: 40px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px dashed var(--primary-400);
+  border-radius: var(--radius-md);
+}
+
+.success-message h3 {
+  color: var(--primary-500);
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+}
+
+.success-message p {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 600px) {
+  .complaint-page {
+    padding: 24px 16px;
+  }
+}

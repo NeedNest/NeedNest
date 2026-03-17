@@ -1,0 +1,440 @@
+/* ============================
+   Navbar Styles
+   ============================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 16px 0;
+  transition: all var(--transition-base);
+  background: transparent;
+}
+
+.navbar-scrolled {
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 10px 0;
+  box-shadow: var(--shadow-lg);
+}
+
+[data-theme="light"] .navbar-scrolled {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.navbar-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+/* Brand */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.brand-logo-img {
+  height: 44px;
+  width: auto;
+  border-radius: var(--radius-sm);
+}
+
+.brand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-md);
+  font-size: 1.2rem;
+  color: white;
+}
+
+.brand-text {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.brand-accent {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Links */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  background: var(--bg-glass);
+}
+
+.nav-link.active {
+  color: var(--primary-400);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.nav-admin {
+  color: var(--accent-400);
+}
+
+.nav-admin.active {
+  color: var(--accent-400);
+  background: rgba(245, 158, 11, 0.1);
+}
+
+/* Actions */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--bg-glass);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  transition: all var(--transition-fast);
+}
+
+.icon-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--primary-400);
+}
+
+.logout-btn:hover {
+  color: var(--error);
+  border-color: var(--error);
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+/* Notification */
+.notification-wrapper {
+  position: relative;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 20px;
+  height: 20px;
+  background: var(--error);
+  border-radius: 50%;
+  font-size: 0.65rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  animation: pulse 2s infinite;
+}
+
+.notification-dropdown {
+  position: absolute;
+  top: 52px;
+  right: 0;
+  width: 360px;
+  max-height: 420px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  z-index: 100;
+}
+
+.notif-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.notif-header h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.mark-read-btn {
+  background: none;
+  border: none;
+  color: var(--primary-400);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.mark-read-btn:hover {
+  text-decoration: underline;
+}
+
+.notif-list {
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.notif-empty {
+  text-align: center;
+  padding: 30px;
+  color: var(--text-tertiary);
+  font-size: 0.9rem;
+}
+
+.notif-item {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border-color);
+  transition: background var(--transition-fast);
+}
+
+.notif-item:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.notif-item.unread {
+  background: rgba(16, 185, 129, 0.05);
+  border-left: 3px solid var(--primary-400);
+}
+
+.notif-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.notif-message {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.notif-time {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  margin-top: 6px;
+  display: block;
+}
+
+/* Mobile */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .mobile-toggle {
+    display: flex;
+  }
+
+  .navbar-links {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: rgba(15, 23, 42, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: 20px;
+    gap: 4px;
+    border-bottom: 1px solid var(--border-color);
+    transform: translateY(-120%);
+    opacity: 0;
+    transition: all var(--transition-base);
+  }
+
+  .navbar-links.open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 14px 16px;
+  }
+
+  .notification-dropdown {
+    width: 300px;
+    right: -60px;
+  }
+}
+
+/* ============================
+   Theme Toggle Switch
+   ============================ */
+.theme-toggle-btn {
+  position: relative;
+  width: 56px;
+  height: 30px;
+  border-radius: 15px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.theme-toggle-track {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  transition: background 400ms ease, box-shadow 400ms ease;
+}
+
+/* Dark mode track - night sky */
+.theme-toggle-btn.dark .theme-toggle-track {
+  background: linear-gradient(135deg, #1a1a3e, #2d1b69);
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Light mode track - day sky */
+.theme-toggle-btn.light .theme-toggle-track {
+  background: linear-gradient(135deg, #56b4f9, #3b98f5);
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  transition: transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1),
+              background 400ms ease,
+              box-shadow 400ms ease;
+  z-index: 2;
+}
+
+/* Dark - Moon position (right) */
+.theme-toggle-btn.dark .theme-toggle-thumb {
+  transform: translateX(29px);
+  background: linear-gradient(135deg, #e8e8f0, #c8c8d8);
+  color: #4a4a6a;
+  box-shadow: 0 0 8px rgba(200, 200, 255, 0.4);
+}
+
+/* Light - Sun position (left) */
+.theme-toggle-btn.light .theme-toggle-thumb {
+  transform: translateX(3px);
+  background: linear-gradient(135deg, #ffd700, #ffaa00);
+  color: #a15c00;
+  box-shadow: 0 0 10px rgba(255, 200, 0, 0.5);
+}
+
+/* Stars in dark mode */
+.theme-toggle-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 400ms ease;
+}
+
+.theme-toggle-btn.dark .theme-toggle-stars {
+  opacity: 1;
+}
+
+.theme-toggle-btn.light .theme-toggle-stars {
+  opacity: 0;
+}
+
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #ffffff;
+  border-radius: 50%;
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.star:nth-child(1) {
+  top: 7px;
+  left: 10px;
+  animation-delay: 0s;
+}
+
+.star:nth-child(2) {
+  top: 16px;
+  left: 18px;
+  width: 2px;
+  height: 2px;
+  animation-delay: 0.5s;
+}
+
+.star:nth-child(3) {
+  top: 10px;
+  left: 23px;
+  width: 2px;
+  height: 2px;
+  animation-delay: 1s;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+/* Light theme - mobile menu override */
+[data-theme="light"] .navbar-links {
+  background: rgba(255, 255, 255, 0.98);
+}
+
+@media (max-width: 900px) {
+  [data-theme="light"] .navbar-links {
+    background: rgba(255, 255, 255, 0.98);
+  }
+}
